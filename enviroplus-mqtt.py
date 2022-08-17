@@ -68,7 +68,7 @@ def read_bme280(bme280):
     values["pressure"] = round(
         int(bme280.get_pressure() * 100), -1
     )  # round to nearest 10
-    values["humidity"] = int(bme280.get_humidity())
+    values["humidity"] = round(bme280.get_humidity(), 2)
     data = gas.read_all()
     values["oxidised"] = int(data.oxidising / 1000)
     values["reduced"] = int(data.reducing / 1000)
